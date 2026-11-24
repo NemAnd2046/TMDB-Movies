@@ -5,7 +5,7 @@ const Pagination = ({ page, setPage, maxPage = 10 }) => {
 
 	return (
 		<div className="flex justify-center p-4">
-			<div className="join">
+			<div className="join max-w-full flex-wrap justify-center">
 				{numbers.map((num) => (
 					<button
 						className={`join-item btn ${page == num && "btn-active"}`}

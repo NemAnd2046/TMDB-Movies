@@ -1,14 +1,17 @@
 import React from "react";
-import { getTrailer, img_500 } from "../utils";
+import { getCredits, getTrailer, img_500 } from "../utils";
 import { FaYoutube } from "react-icons/fa6";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Carousel } from "./Carousel";
 
 const MyModal = ({ isOpen, setIsOpen, media, type }) => {
 	const [trailer, setTrailer] = useState([]);
+	const [credits, setCredits] = useState([]);
 
 	useEffect(() => {
 		getTrailer(media.media_type || type, media.id).then(setTrailer);
+		getCredits(media.media_type || type, media.id).then(setCredits);
 	}, []);
 
 	return (
@@ -25,6 +28,9 @@ const MyModal = ({ isOpen, setIsOpen, media, type }) => {
 						<span> ({media.release_date || media.first_air_date}) </span>
 					</h3>
 					<p className="py-4">{media.overview}</p>
+				</div>
+				<div className="modal-action p-2 w-full">
+					{credits.length > 0 && <Carousel credits={credits.slice(0, 10)} />}
 				</div>
 				<div className="modal-action p-2 flex justify-around w-full">
 					{trailer.length > 0 && trailer[0].site == "YouTube" && (
