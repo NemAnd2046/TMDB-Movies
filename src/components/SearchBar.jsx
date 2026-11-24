@@ -25,7 +25,12 @@ const SearchBar = ({ searchText, setSearchText, handleSearch }) => {
 					required
 					placeholder="Search"
 					value={searchText}
-					onChange={(e) => setSearchText(e.target.value.trim())}
+					onChange={(e) => setSearchText(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							handleSearch();
+						}
+					}}
 				/>
 			</label>
 			<button className="btn btn-primary" onClick={handleSearch}>

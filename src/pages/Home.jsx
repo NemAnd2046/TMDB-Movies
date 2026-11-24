@@ -5,20 +5,16 @@ import { getTrending, img_300 } from "../utils";
 import MediaList from "../components/MediaList";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
 	const [trendings, setTrendings] = useState(null);
 	const [error, setError] = useState(null);
+	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		getTrending()
-			.then(setTrendings)
-			.catch(() =>
-				setError(
-					"Nem sikerült betölteni a felkapott tartalmakat. Próbáld újra később.",
-				),
-			);
-	}, []);
+		getTrending(page).then(setTrendings);
+	}, [page]);
 
 	return (
 		<div>
@@ -29,6 +25,7 @@ const Home = () => {
 			) : (
 				<Loading />
 			)}
+			<Pagination {...{page, setPage}} />
 		</div>
 	);
 };

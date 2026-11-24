@@ -9,7 +9,8 @@ const MediaList = ({ data, type }) => {
 				{getTitle(type)}
 			</h2>
 			<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,300px))] gap-4 justify-center mt-10 pb-10">
-				{data && data.map((obj) => <MediaCard key={obj.id} media={obj} />)}
+				{data &&
+					data.map((obj) => <MediaCard key={obj.id} media={obj} type={type} />)}
 			</div>
 		</div>
 	);
