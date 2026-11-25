@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getActors, getMedia } from "../utils";
-import SearchBar from "./SearchBar";
-import Loading from "./Loading";
-import Pagination from "./Pagination";
-import MediaList from "./MediaList";
+import SearchBar from "../components/SearchBar";
+import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
+import MediaList from "../components/MediaList";
 
 const Actors = () => {
 	const [actors, setActors] = useState([]);

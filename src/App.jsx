@@ -6,7 +6,7 @@ import Movies from "./pages/Movies";
 import TVShows from "./pages/TVShows";
 import SearchMedia from "./pages/SearchMedia";
 import NotFound from "./pages/NotFound";
-import Actors from "./components/Actors";
+import Actors from "./pages/Actors";
 
 const myRouter = createBrowserRouter([
 	{
