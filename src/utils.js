@@ -34,6 +34,7 @@ const pageTitle = [
 	{ type: "movie", title: "Movies" },
 	{ type: "tv", title: "TV Series" },
 	{ type: "search", title: "Search Shows" },
+	{ type: "person", title: "Actors" },
 ];
 
 export const getTitle = (type) => {
@@ -63,5 +64,20 @@ export const getTrailer = async (type, id) => {
 
 export const getCredits = async (type, id) => {
 	const response = await api.get(`/${type}/${id}/credits`);
+	return response.data.cast;
+};
+
+export const getActors = async (page) => {
+	const response = await api.get(`/person/popular`, { params: { page } });
+	return response.data.results;
+};
+
+export const getActorDetails = async (id) => {
+	const response = await api.get(`/person/${id}`);
+	return response.data;
+};
+
+export const getActorCredits = async (id) => {
+	const response = await api.get(`/person/${id}/movie_credits`);
 	return response.data.cast;
 };

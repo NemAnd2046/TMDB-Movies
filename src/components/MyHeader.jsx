@@ -14,38 +14,22 @@ const MyHeader = () => {
 		<div>
 			<header className="bg-gray-950 p-4">
 				<nav className="px-6 mx-auto max-w-7xl">
-					{/* felső sor */}
-					<div className="flex justify-between items-center">
-						<div className="text-2xl font-bold">
-							PETI
-							<span className="text-red-500">FLIX</span>
+					<div className="flex flex-col min-[550px]:flex-row min-[550px]:justify-between min-[550px]:items-center">
+						<div className="flex justify-between items-center">
+							<div className="text-2xl font-bold">
+								PETI
+								<span className="text-red-500">FLIX</span>
+							</div>
+							<button
+								className="min-[550px]:hidden text-3xl"
+								onClick={() => setMenuOpen(!menuOpen)}
+							>
+								{menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+							</button>
 						</div>
-						{/* asztali menü */}
-						<div className="hidden min-[550px]:flex gap-8 font-bold items-center">
-							<NavLink to={"/"} className={navLinkClass}>
-								Kezdőlap
-							</NavLink>
-							<NavLink to={"/movies"} className={navLinkClass}>
-								Filmek
-							</NavLink>
-							<NavLink to={"/tv"} className={navLinkClass}>
-								Sorozatok
-							</NavLink>
-							<NavLink to={"/search"} className={navLinkClass}>
-								Keresés
-							</NavLink>
-						</div>
-						{/* hamburger menü */}
-						<button
-							className="min-[550px]:hidden text-3xl"
-							onClick={() => setMenuOpen(!menuOpen)}
+						<div
+							className={`${menuOpen ? "flex" : "hidden"} mt-4 min-[550px]:mt-0 min-[550px]:flex flex-col min-[550px]:flex-row gap-8 font-bold items-center`}
 						>
-							{menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
-						</button>
-					</div>
-					{/* alsó sor */}
-					{menuOpen && (
-						<div className="hidden max-[550px]:flex flex-col gap-8 font-bold items-center">
 							<NavLink to={"/"} className={navLinkClass}>
 								Kezdőlap
 							</NavLink>
@@ -58,8 +42,11 @@ const MyHeader = () => {
 							<NavLink to={"/search"} className={navLinkClass}>
 								Keresés
 							</NavLink>
+							<NavLink to={"/actors"} className={navLinkClass}>
+								Színészek
+							</NavLink>
 						</div>
-					)}
+					</div>
 				</nav>
 			</header>
 			<main>

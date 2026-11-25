@@ -16,8 +16,8 @@ const SearchMedia = () => {
 	const [maxPage, setMaxPage] = useState(1);
 
 	const handleSearch = () => {
-		if (searchText.length == 0) return;
-		getMedia(type, searchText, page).then((data) => {
+		if (searchText.trim().length == 0) return;
+		getMedia(type, searchText.trim(), page).then((data) => {
 			setMedia(data.results);
 			setMaxPage(data.totalPages);
 			setPage(1);

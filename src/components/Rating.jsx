@@ -1,7 +1,6 @@
 import React from "react";
 
 const Rating = ({ vote }) => {
-
 	return (
 		<div className="rating">
 			{[1, 2, 3, 4, 5].map((num) => (
