@@ -16,9 +16,8 @@ const MyHeader = () => {
 				<nav className="px-6 mx-auto max-w-7xl">
 					<div className="flex flex-col min-[550px]:flex-row min-[550px]:justify-between min-[550px]:items-center">
 						<div className="flex justify-between items-center">
-							<div className="text-2xl font-bold">
-								PETI
-								<span className="text-red-500">FLIX</span>
+							<div className="text-2xl font-bold text-red-500">
+								NETFLIX
 							</div>
 							<button
 								className="min-[550px]:hidden text-3xl"
